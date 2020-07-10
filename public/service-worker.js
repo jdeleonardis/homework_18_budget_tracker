@@ -1,10 +1,12 @@
-const FILES_TO_CACHE = [
-      '/',
-      '/index.html',
-      '/index.js',    
-      '/styles.css',
-      '/manifest.webmanifest'
-    ];
+    const FILES_TO_CACHE = [
+          '/',
+          '/index.html',
+          '/index.js',    
+          '/styles.css',
+          '/manifest.webmanifest',
+          '/icons/icon-144x144.png',
+          '/icons/icon-192x192.png'      
+        ];    
 
 const CACHE_NAME = "static-cache-version-1";
 const DATA_CACHE_NAME = "data-cache-version-1";
@@ -48,6 +50,7 @@ self.addEventListener("fetch", function (evt) {
           .then(response => {
             // If the response was good, clone it and store it in the cache.
             if (response.status === 200) {
+                console.log("made it")
               cache.put(evt.request.url, response.clone());
             }
 
